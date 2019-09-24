@@ -525,6 +525,7 @@ public class MainDataServiceImpl implements MainDataService {
 			}
 			mde.setExaActGroRate(MyNumberUtils.doubleRounding(2, exaActGroRate).toString());
 
+			
 			this.updateMainData(mde);
 		}
 	}
