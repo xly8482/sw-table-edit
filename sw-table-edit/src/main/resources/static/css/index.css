@@ -1,0 +1,9 @@
+body {
+	overflow: hidden;
+    background-color: #fbfbfb;
+}
+
+.table-search {
+	margin-top: 10px;
+    margin-bottom: -10px;
+}
