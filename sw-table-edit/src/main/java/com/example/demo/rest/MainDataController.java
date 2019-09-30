@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -95,6 +96,19 @@ public class MainDataController {
 	public ResultVO<MainDataEntity> countData() {
 		ResultVO<MainDataEntity> res = new ResultVO<MainDataEntity>();
 		mainDataService.countData();
+		return res;
+	}
+	
+	/**
+	 * 清空全部数据
+	 * 
+	 * @return
+	 */
+	@DeleteMapping("/deleteData")
+	@ResponseBody
+	public ResultVO<MainDataEntity> deleteData() {
+		ResultVO<MainDataEntity> res = new ResultVO<MainDataEntity>();
+		mainDataService.deleteAllData();
 		return res;
 	}
 }

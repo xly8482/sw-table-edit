@@ -105,11 +105,20 @@ public class MainDataServiceImpl implements MainDataService {
 		Row row;
 		MainDataEntity mde;
 		int cellIdx = 0;
+		String taxRate;
+		String contractType;
+		String settleStates;
+		String proRemarks;
 		for (int i = 1; i <= sheet.getLastRowNum(); i++) {
 			row = sheet.getRow(i);
 
 			cellIdx = 0;
 			mde = new MainDataEntity();
+			taxRate = null;
+			contractType = null;
+			settleStates = null;
+			proRemarks = null;
+
 			mde.setSquNo(i);
 			mde.setProjectNo(poiExcelReport.getCellValueStr(row.getCell(cellIdx++)));
 			mde.setDrawingNo(poiExcelReport.getCellValueStr(row.getCell(cellIdx++)));
@@ -160,6 +169,26 @@ public class MainDataServiceImpl implements MainDataService {
 			mde.setLeaderOfBranch(poiExcelReport.getCellValueStr(row.getCell(cellIdx++)));
 			mde.setRemark(poiExcelReport.getCellValueStr(row.getCell(cellIdx++)));
 
+			taxRate = poiExcelReport.getCellValueStr(row.getCell(cellIdx++));
+			if (!StringUtils.isEmpty(taxRate)) {
+				mde.setTaxRate(taxRate);
+			}
+
+			contractType = poiExcelReport.getCellValueStr(row.getCell(cellIdx++));
+			if (!StringUtils.isEmpty(contractType)) {
+				mde.setContractType(contractType);
+			}
+
+			settleStates = poiExcelReport.getCellValueStr(row.getCell(cellIdx++));
+			if (!StringUtils.isEmpty(settleStates)) {
+				mde.setSettleStates(settleStates);
+			}
+
+			proRemarks = poiExcelReport.getCellValueStr(row.getCell(cellIdx++));
+			if (!StringUtils.isEmpty(proRemarks)) {
+				mde.setProRemarks(proRemarks);
+			}
+
 			dataList.add(mde);
 		}
 
@@ -191,6 +220,11 @@ public class MainDataServiceImpl implements MainDataService {
 				mde.setContractPrice(poiExcelReport.getCellValueStr(row.getCell(cellIdx++)));
 				cellIdx++;
 				mde.setOwnerUnit(poiExcelReport.getCellValueStr(row.getCell(cellIdx++)));
+				cellIdx++;
+				mde.setContractType(poiExcelReport.getCellValueStr(row.getCell(cellIdx++)));
+				cellIdx += 3;
+				mde.setSettleStates(poiExcelReport.getCellValueStr(row.getCell(cellIdx++)));
+				mde.setProRemarks(poiExcelReport.getCellValueStr(row.getCell(cellIdx++)));
 				mde.setImplUnit("自动化公司");
 
 				dataList.add(mde);
@@ -268,26 +302,9 @@ public class MainDataServiceImpl implements MainDataService {
 		return dataList;
 	}
 
-	// 与现有数据做比较，判断导入数据是否与现有数据有关联性
-	private MainDataEntity compareToExistData(MainDataEntity addMde, List<MainDataEntity> existList,
-			String reportType) {
-		for (MainDataEntity extMde : existList) {
-			// 1 比对工程编号(合同号)
-			if (extMde.getProjectNo().equals(addMde.getProjectNo())) {
-				if (reportType.equals(BASE_REPORT)) {
-					// 导入本表格数据时，使用全员覆盖
-					addMde = ClassTransformUtil.copy(extMde, addMde, new String[] { "id" });
-				} else {
-					// 导入其他数据表格时，采用未赋值覆盖
-					addMde = ClassTransformUtil.copy(extMde, addMde, true, new String[] { "id" });
-				}
-			}
-
-			// 2对比工程名称 TODO
-
-		}
-
-		return addMde;
+	@Override
+	public void deleteAllData() {
+		mainDataDao.deleteAll();
 	}
 
 	@Override
@@ -525,13 +542,35 @@ public class MainDataServiceImpl implements MainDataService {
 			}
 			mde.setExaActGroRate(MyNumberUtils.doubleRounding(2, exaActGroRate).toString());
 
-			
 			this.updateMainData(mde);
 		}
 	}
-	
+
+	// 与现有数据做比较,判断导入数据是否与现有数据有关联性
+	private MainDataEntity compareToExistData(MainDataEntity addMde, List<MainDataEntity> existList,
+			String reportType) {
+		for (MainDataEntity extMde : existList) {
+			// 1 比对工程编号(合同号)
+			if (extMde.getProjectNo().equals(addMde.getProjectNo())) {
+				if (reportType.equals(BASE_REPORT)) {
+					// 导入本表格数据时，使用全员覆盖
+					addMde = ClassTransformUtil.copy(extMde, addMde, new String[] { "id" });
+				} else {
+					// 导入其他数据表格时，采用未赋值覆盖
+					addMde = ClassTransformUtil.copy(extMde, addMde, true, new String[] { "id" });
+				}
+			}
+
+			// 2对比工程名称 TODO
+
+		}
+
+		return addMde;
+	}
+
 	private boolean strIsEmptyOrZero(String str) {
-		return (StringUtils.isEmpty(str) || str.equals("0") || str.equals("0.0") || str.equals("0.00") || str.equals("0.000"));
+		return (StringUtils.isEmpty(str) || str.equals("0") || str.equals("0.0") || str.equals("0.00")
+				|| str.equals("0.000"));
 	}
 
 }

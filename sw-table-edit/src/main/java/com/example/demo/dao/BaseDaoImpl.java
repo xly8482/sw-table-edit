@@ -190,6 +190,18 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public void deleteAll() {
+		Class<T> entityClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
+				.getActualTypeArguments()[0];
+		// 左匹配
+		Pattern pattern = Pattern.compile("^.*$", Pattern.CASE_INSENSITIVE);
+
+		Query query = new Query(Criteria.where("_id").regex(pattern));
+		mongoTemplate.remove(query, entityClass);
+	}
+
 	// @Override
 	// public List<T> selectAndPaging(T t, Integer pageNum, Integer pageSize)
 	// {

@@ -1,97 +1,49 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<link href="plugin/layui/css/layui.css" rel="stylesheet">
-<link href="css/index.css" rel="stylesheet">
+    <link href="plugin/layui/css/layui.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
-	<div class="layui-fluid">
-		<div class="table-search">
-		  <label>工程编号</label> 
-		  <div class="layui-inline">
-		    <input class="layui-input" name="sh_projectNo" id="sh_projectNo">
-		  </div>
-		  
-  		  <label>工程名称</label> 
-		  <div class="layui-inline">
-		    <input class="layui-input" name="sh_projectName" id="sh_projectName">
-		  </div>
-		  <button class="layui-btn" data-type="search" id="search">查询</button>
-		</div>
-	
-		<div class="layui-row">
-			<div class="layui-col-md12">
-				<table class="layui-table" lay-filter="mainDataTable" id="mainDataTable">
-					<!--<thead>
-			    <tr>
-			      	<th lay-data="{type:'checkbox'}">id</th>
-			      	<th lay-data="{field:'id', hide:true, width:60}">id</th>
-					<th lay-data="{field:'squNo', sort: true, edit: 'text', align: 'center', title: '序号', width:80}">序号</th>
-					<th lay-data="{field:'projectNo',sort: true, edit: 'text', title: '工程编号', width:110}">工程编号</th>
-					<th lay-data="{field:'drawingNo',sort: true, edit: 'text', title: '图纸编号', width:110}">图纸编号</th>
-					<th lay-data="{field:'projectName',sort: true, edit: 'text', title: '工程名称', width:110}">工程名称</th>
-					<th lay-data="{field:'ownerUnit',sort: true, edit: 'text', title: '业主单位', width:110}">业主单位</th>
-					<th lay-data="{field:'implUnit',sort: true, edit: 'text', title: '实施单位', width:110}">实施单位</th>
-					<th lay-data="{field:'contractPrice',sort: false, edit: 'text', title: '合同价款', width:90}">合同价款</th>
-					<th lay-data="{field:'princSupplier',sort: false, edit: 'text', title: '甲供主材', width:90}">甲供主材</th>
-					<th lay-data="{field:'provAmount',sort: false, edit: 'text', title: '暂定金', width:80}">暂定金</th>
-					<th lay-data="{field:'taxedIncome',sort: false, edit: 'text', title: '含税工程收入', width:120}">含税工程收入</th>
-					<th lay-data="{field:'noneTaxedIncome',sort: false, edit: 'text', title: '除税工程收入', width:120}">除税工程收入</th>
-					<th lay-data="{field:'projectState',sort: false, edit: 'text', title: '工程状态', width:90}">工程状态</th>
-					<th lay-data="{field:'rateOfMonth',sort: false, edit: 'text', title: '当月实际进度', width:120}">当月实际进度</th>
-					<th lay-data="{field:'actualOutputOfMonth',sort: false, edit: 'text', title: '当月实际施工产值', width:150}">当月实际施工产值</th>
-					<th lay-data="{field:'cumulaActRate',sort: false, edit: 'text', title: '累计实际进度(%)', width:140}">累计实际进度(%)</th>
-					<th lay-data="{field:'cumulaActOutput',sort: false, edit: 'text', title: '累计实际施工产值', width:150}">累计实际施工产值</th>
-					<th lay-data="{field:'supervReOfMonth',sort: false, edit: 'text', title: '当月监理月报(%)', width:150}">当月监理月报(%)</th>
-					<th lay-data="{field:'supervReOutOfMonth',sort: false, edit: 'text', title: '当月监理月报产值', width:150}">当月监理月报产值</th>
-					<th lay-data="{field:'setIncomeOfMonth',sort: false, edit: 'text', title: '当月结算收入(除税)', width:160}">当月结算收入(除税)</th>
-					<th lay-data="{field:'cumulaSupOutOfMonth',sort: false, edit: 'text', title: '累计监理月报产值', width:150}">累计监理月报产值</th>
-					<th lay-data="{field:'cumulaFinSetIncome',sort: false, edit: 'text', title: '累计财务结算收入(除税)', width:180}">累计财务结算收入(除税)</th>
-					<th lay-data="{field:'cumulaFinIncomeRate',sort: false, edit: 'text', title: '累计结算收入占比(%)', width:170}">累计结算收入占比(%)</th>
-					<th lay-data="{field:'unFinIncome',sort: false, edit: 'text', title: '未结算收入(除税)', width:140}">未结算收入(除税)</th>
-					<th lay-data="{field:'incomeOfMonth',sort: false, edit: 'text', title: '本月收款金额', width:120}">本月收款金额</th>
-					<th lay-data="{field:'cumulaIncome',sort: false, edit: 'text', title: '累计收款金额', width:120}">累计收款金额</th>
-					<th lay-data="{field:'payRateOfContract',sort: false, edit: 'text', title: '合同约定支付比例', width:160}">合同约定支付比例</th>
-					<th lay-data="{field:'paRaOfConIncome',sort: false, edit: 'text', title: '按合同支付比例应收款', width:180}">按合同支付比例应收款</th>
-					<th lay-data="{field:'paRaOfConDeficit',sort: false, edit: 'text', title: '按合同支付比例欠收款', width:180}">按合同支付比例欠收款</th>
-					<th lay-data="{field:'receIncome',sort: false, edit: 'text', title: '应收账款', width:90}">应收账款</th>
-					<th lay-data="{field:'payAmount',sort: false, edit: 'text', title: '应付账款', width:90}">应付账款</th>
-					<th lay-data="{field:'proPlanTalCost',sort: false, edit: 'text', title: '工程计划总成本', width:130}">工程计划总成本</th>
-					<th lay-data="{field:'proPlanProfit',sort: false, edit: 'text', title: '工程计划毛利润', width:130}">工程计划毛利润</th>
-					<th lay-data="{field:'proPlanProfitRate',sort: false, edit: 'text', title: '工程计划毛利率', width:130}">工程计划毛利率</th>
-					<th lay-data="{field:'settleCostNow',sort: false, edit: 'text', title: '工程现阶段已结转成本', width:170}">工程现阶段已结转成本</th>
-					<th lay-data="{field:'grossProfitNow',sort: false, edit: 'text', title: '工程现阶段毛利润', width:150}">工程现阶段毛利润</th>
-					<th lay-data="{field:'grossRateNow',sort: false, edit: 'text', title: '工程现阶段毛利率', width:150}">工程现阶段毛利率</th>
-					<th lay-data="{field:'preExamineAmount',sort: false, edit: 'text', title: '工程预估审定金额(含税)', width:180}">工程预估审定金额(含税)</th>
-					<th lay-data="{field:'preActTolIncome',sort: false, edit: 'text', title: '工程预估实际总收入(除税)', width:200}">工程预估实际总收入(除税)</th>
-					<th lay-data="{field:'preActCost',sort: false, edit: 'text', title: '工程预估实际总成本', width:160}">工程预估实际总成本</th>
-					<th lay-data="{field:'preActGroProfit',sort: false, edit: 'text', title: '工程预估实际毛利润', width:160}">工程预估实际毛利润</th>
-					<th lay-data="{field:'preActGroRate',sort: false, edit: 'text', title: '工程预估实际毛利率', width:160}">工程预估实际毛利率</th>
-					<th lay-data="{field:'examineAmount',sort: false, edit: 'text', title: '工程审定金额', width:120}">工程审定金额</th>
-					<th lay-data="{field:'exaActTolIncome',sort: false, edit: 'text', title: '工程审计后实际总收入', width:180}">工程审计后实际总收入</th>
-					<th lay-data="{field:'exaActCost',sort: false, edit: 'text', title: '工程审计后实际总成本', width:180}">工程审计后实际总成本</th>
-					<th lay-data="{field:'exaActGroProfit',sort: false, edit: 'text', title: '工程审计后实际毛利润', width:180}">工程审计后实际毛利润</th>
-					<th lay-data="{field:'exaActGroRate',sort: false, edit: 'text', title: '工程审计后实际毛利率', width:180}">工程审计后实际毛利率</th>
-					<th lay-data="{field:'dirCharPerson',sort: true, edit: 'text', title: '直接负责人', width:130}">直接负责人</th>
-					<th lay-data="{field:'leaderOfBranch',sort: true, edit: 'text', title: '分管领导', width:110}">分管领导</th>
-					<th lay-data="{field:'remark',sort: false, edit: 'text', title: '备注'}">备注</th>
-			    </tr>
-			  </thead> -->
-				</table>
+<div class="layui-fluid">
+    <div class="table-search">
+        <label>工程编号</label>
+        <div class="layui-inline">
+            <input class="layui-input" name="sh_projectNo" id="sh_projectNo">
+        </div>
 
-			</div>
-		</div>
-	</div>
+        <label>工程名称</label>
+        <div class="layui-inline">
+            <input class="layui-input" name="sh_projectName" id="sh_projectName">
+        </div>
+        <button class="layui-btn" data-type="search" id="search">查询</button>
+    </div>
+
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <table class="layui-table" lay-filter="mainDataTable" id="mainDataTable"></table>
+        </div>
+    </div>
+</div>
 </body>
 
 
 <script type="text/html" id="barDemo">
-	<div class="layui-inline">
-		<a class="layui-btn layui-btn-sm" lay-event="import" id="tableImportBtn">数据导入</a>
-	</div>
-	<div class="layui-inline">
-		<a class="layui-btn layui-btn-sm" lay-event="count" id="tableCountBtn">计算数据</a>
-	</div>
+    <div class="layui-inline">
+        <a class="layui-btn layui-btn-sm" lay-event="import" id="tableImportBtn">数据导入</a>
+    </div>
+    <div class="layui-inline">
+        <a class="layui-btn layui-btn-sm" lay-event="count" id="tableCountBtn">计算数据</a>
+    </div>
+    <div class="layui-inline">
+        <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="clear" id="tableClearBtn">清空数据</a>
+    </div>
+</script>
+
+<script type="text/html" id="dataDemo">
+    <div class="layui-inline">
+        <a class="layui-btn layui-btn-sm" lay-event="report" id="projectReport">查看报告</a>
+    </div>
 </script>
 
 <script src="js/jquery-3.4.1.min.js"></script>

@@ -1,0 +1,101 @@
+body {
+    background-color: #fbfbfb;
+}
+
+.layui-container {
+
+}
+
+.layui-card {
+    background-color: #FAF9F9;
+    box-shadow: none;
+    padding: 10px 25px;
+}
+
+.layui-card-header {
+    border-bottom: 1px solid #c4c4c4;
+    padding: 0;
+    height: 40px;
+}
+
+.layui-card-header .text {
+    font-size: 18px;
+    display: inline-block;
+    margin-right: 10px;
+    float: left;
+    line-height: 38px;
+    border-bottom: solid 3px #008be3;
+    color: #333;
+    padding: 0px 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.layui-table th {
+    background-color: #faf9f970;
+    font-weight: 600;
+}
+
+.data-plan {
+
+}
+
+.data-produce {
+
+}
+
+.data-finance {
+
+}
+
+.data-lab-nav {
+    list-style: none;
+    position: fixed;
+    min-width: 100px;
+    top: 35px;
+    z-index: 0;
+}
+
+.data-lab-nav li {
+    margin-bottom: 2px;
+}
+
+.data-lab-nav li a {
+    background: #fff;
+    color: #666;
+    display: block;
+    font-size: 14px;
+    padding: 8px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 5px 0px 0px 5px;
+    margin-left: 35px;
+    border-bottom: 2px solid #dddddd !important;
+    transition: margin-left 0.5s, background-color 0.5s, border-bottom 0.5s, color 0.5s;
+    -moz-transition: margin-left 0.5s, background-color 0.5s, border-bottom 0.5s, color 0.5s;
+    -webkit-transition: margin-left 0.5s, background-color 0.5s, border-bottom 0.5s, color 0.5s;
+    -o-transition: margin-left 0.5s, background-color 0.5s, border-bottom 0.5s, color 0.5s;
+}
+
+.data-lab-nav .current a {
+    background-color: #1E9FFF;
+    color: #fff;
+    margin-left: 5px;
+}
+
+.data-preview {
+    margin: 20px 20px 20px 105px;
+    border: 1px solid #ddd;
+    -moz-box-shadow: 2px 2px 5px #888888;
+    box-shadow: 2px 2px 5px #888888;
+    background-color: #FAF9F9;
+    position: relative;
+    border-radius: 5px;
+}
+
+.one-row-chart {
+    height: 600px;
+    border: 1px solid #D3D3D3;
+    background-color: #fff;
+    padding: 10px 20px;
+}

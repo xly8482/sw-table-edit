@@ -265,9 +265,24 @@ public class MainDataEntity implements Serializable {
 	private String taxRate;
 
 	/**
-	 * 收款时间 51
+	 * 收款时间 51 (去除)
 	 */
 	private String incomeDate;
+	
+	/**
+	 * 合同类型 52
+	 */
+	private String contractType;
+	
+	/**
+	 * 计算状态 53
+	 */
+	private String settleStates;
+	
+	/**
+	 * 项目备注 54
+	 */
+	private String proRemarks;
 
 	/**
 	 * @return the id
@@ -985,4 +1000,27 @@ public class MainDataEntity implements Serializable {
 		this.incomeDate = incomeDate;
 	}
 
+	public String getContractType() {
+		return contractType;
+	}
+
+	public void setContractType(String contractType) {
+		this.contractType = contractType;
+	}
+
+	public String getSettleStates() {
+		return settleStates;
+	}
+
+	public void setSettleStates(String settleStates) {
+		this.settleStates = settleStates;
+	}
+
+	public String getProRemarks() {
+		return proRemarks;
+	}
+
+	public void setProRemarks(String proRemarks) {
+		this.proRemarks = proRemarks;
+	}
 }

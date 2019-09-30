@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <link href="plugin/layui/css/layui.css" rel="stylesheet">
+    <link href="css/project_report.css" rel="stylesheet">
+    <title>工程项目报告</title>
+</head>
+<body>
+<div class="layui-container">
+    <ul class="data-lab-nav" id="nav2">
+        <li class="current" id="r1"><a href="#data-plan">计划概述</a></li>
+        <li id="r2"><a href="#data-produce">生产概述</a></li>
+        <li id="r3"><a href="#data-finance">财务概述</a></li>
+        <li id="r4"><a href="#data-con-progress">生产进度</a></li>
+        <li id="r5"><a href="#data-plan-check">计划审定</a></li>
+        <li id="r6"><a href="#data-receive-settle">收款结算</a></li>
+        <!-- <li id="r7"><a href="#pr9">计划对比</a></li>
+        <li id="r8"><a href="#pr11">分析结果</a></li> -->
+    </ul>
+
+    <div class="data-preview">
+        <div class="layui-row data-plan" id="data-plan">
+            <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header"><h2 class="text">计划概述</h2></div>
+                    <div class="layui-card-body">
+                        <table class="layui-table">
+                            <tbody>
+                            <tr>
+                                <th>含税工程收入</th>
+                                <th>除税工程收入</th>
+                                <th>工程计划总成本</th>
+                                <th>工程计划毛利润</th>
+                                <th>工程计划毛利率(%)</th>
+                            </tr>
+                            <tr>
+                                <td>800000.00</td>
+                                <td>727272.73</td>
+                                <td>400000.00</td>
+                                <td>327272.73</td>
+                                <td>45</td>
+                            </tr>
+                            <tr>
+                                <th>工程预估审定金额(含税)</th>
+                                <th>工程预估实际总收入(除税)</th>
+                                <th>工程预估实际总成本</th>
+                                <th>工程预估实际毛利润</th>
+                                <th>工程预估实际毛利率(%)</th>
+                            </tr>
+                            <tr>
+                                <td>700000.00</td>
+                                <td>636363.64</td>
+                                <td>450000.00</td>
+                                <td>186363.64</td>
+                                <td>29.29</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-row data-produce" id="data-produce">
+            <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header"><h2 class="text">生产概述</h2></div>
+                    <div class="layui-card-body">
+                        <table class="layui-table">
+                            <tbody>
+                            <tr>
+                                <th>当月实际进度(%)</th>
+                                <th>当月施工产值</th>
+                                <th>累计实际施工产值</th>
+                                <th>累计实际进度(%)</th>
+                            </tr>
+                            <tr>
+                                <td>15.00</td>
+                                <td>280000.00</td>
+                                <td>620000.00</td>
+                                <td>80.11</td>
+                            </tr>
+                            <tr>
+                                <th>当月监理月报(%)</th>
+                                <th>当月监理月报产值</th>
+                                <th>累计监理月报产值</th>
+                                <th>工程状态</th>
+                            </tr>
+                            <tr>
+                                <td>12.00</td>
+                                <td>220000.00</td>
+                                <td>560000.00</td>
+                                <td>已审定</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-row data-finance" id="data-finance">
+            <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header"><h2 class="text">财务概述</h2></div>
+                    <div class="layui-card-body">
+                        <table class="layui-table">
+                            <tbody>
+                            <tr>
+                                <th>当月结算收入(除税)</th>
+                                <th>累计财务结算收入(除税)</th>
+                                <th>累计结算收入占比(%)</th>
+                                <th>未结算收入(除税)</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>200000.00</td>
+                                <td>496000.00</td>
+                                <td>68.20</td>
+                                <td>231272.73</td>
+                            </tr>
+                            <tr>
+                                <th>本月收款金额</th>
+                                <th>累计收款金额</th>
+                                <th>合同约定支付比例(%)</th>
+                                <th>按合同支付比例应收款</th>
+                                <th>按合同支付比例欠收款</th>
+                            </tr>
+                            <tr>
+                                <td>200000.00</td>
+                                <td>496000.00</td>
+                                <td>80</td>
+                                <td>496000.00</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <th>应收账款</th>
+                                <th>欠收账款</th>
+                                <th>工程现阶段已转结成本</th>
+                                <th>工程现阶段毛利润</th>
+                                <th>工程现阶段毛利率</th>
+                            </tr>
+                            <tr>
+                                <td>200000.00</td>
+                                <td>520000.00</td>
+                                <td>20%</td>
+                                <td>40000.00</td>
+                                <td>40000.00</td>
+                            </tr>
+                            <tr>
+                                <th>工程审定金额</th>
+                                <th>工程审计后实际总收入</th>
+                                <th>工程审计后实际总成本</th>
+                                <th>工程审计后实际毛利润</th>
+                                <th>工程审计后实际毛利率</th>
+                            </tr>
+                            <tr>
+                                <td>650000.00</td>
+                                <td>590909.09</td>
+                                <td>450000.00</td>
+                                <td>140909.09</td>
+                                <td>23.85</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-row data-con-progress" id="data-con-progress">
+            <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header"><h2 class="text">生产进度</h2></div>
+                    <div class="layui-card-body">
+                        <div class="one-row-chart" id="dataConProgressChart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-row data-plan-check" id="data-plan-check">
+            <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header"><h2 class="text">计划审定</h2></div>
+                    <div class="layui-card-body">
+                        <div class="one-row-chart" id="dataPlanCheckChart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-row data-receive-settle" id="data-receive-settle">
+            <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header"><h2 class="text">收款结算</h2></div>
+                    <div class="layui-card-body">
+                        <div class="one-row-chart" id="dataReceiveSettleChart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-row data-empty" id="data-empty">
+            <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <div style="height: 300px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+</body>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="plugin/layui/layui.js"></script>
+<script src="plugin/echarts/echarts.min.js"></script>
+<script src="js/project_report.js"></script>

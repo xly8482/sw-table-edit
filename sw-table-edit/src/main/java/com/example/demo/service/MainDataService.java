@@ -15,4 +15,6 @@ public interface MainDataService {
 	public int uploadFile(String reportType, List<String> filePathList);
 	
 	public void countData();
+	
+	public void deleteAllData();
 }
