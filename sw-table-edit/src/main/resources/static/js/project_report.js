@@ -1,8 +1,8 @@
 let dataConProgressChart, dataPlanCheckChart, dataReceiveSettleChart;
 
 layui.use(['table', 'upload'], function () {
-    let table = layui.table;
-    let upload = layui.upload;
+    // let table = layui.table;
+    // let upload = layui.upload;
 
     //监听滚动条事件
     $(window).scroll(function () {
